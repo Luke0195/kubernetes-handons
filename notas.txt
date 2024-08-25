@@ -1,0 +1,52 @@
+5 pilares do devops.
+
+CALMS 
+  C - cultura
+  A - Automação
+  L - Lean
+  M - Meditação
+  S - Compartilhamento.
+
+Aula 01 - Desenvolvimento Inteligente com Docker.ls
+
+Docker Host - é a máquina onde o docker está instalado.
+Docker Daemon - é responsável por gerenciar as os containers e imagens.
+Docker Client - é responsável ser comunicar o docker client com docker daemon.
+
+Aula 02 - Kubernetes Eficiência de clusters na Prática
+
+O kubernetes é responsável por gerenciar/ orquestrar os container.
+
+Cluster - é um conjunto de máquinas que pode exercer um de dois papeis (control plane/control node).
+
+A arquitetura do kubernetes é divida em duas partes 
+Control Plane - Possui um conjuntos de componentes para nos comunicarmos com o control cluster kubernetes.
+
+* API Server - responsável por comunicar o com o cluster kubernetes.
+* etcd - É um banco de dados chaves e valor que armazena as informações do cluster.
+* sheduler - É responsável por definir onde os nós(containers) serão executados.
+* Controller Manager - Responsável por gerenciar o estado do cluster kubernetes.
+
+Worker Node -
+ Kubelet - É responsável por garantir a excecução do container.
+ kube-proxy ->  Gerencia a comunicação de rede no kluster
+ 
+ k3d cluster list - (lista todos os cluster kubernetes)
+ k3d cluster delete
+
+ Deployment -> executar a aplicação no cluster kubernetes.
+ Objetos em um deployment kubenetes.
+
+ pod -> menor objeto do cluster kubernetes responsável por executar o container.
+ replicaset -> garante a quantidade de replicas do pod vai ser executado no cluster.
+ kubectl get deployment  - lista todos os deployments.
+
+kubect port-foward - realizar o port binding entre o pod e porta da máquina.
+
+services - Atua com um service discovery sabendo qual aplicação acessar.
+Possuimos 3 tipos de ip
+Cluster Ip - Só é possível acessar o ip pelo custer kubernetes.
+NodePort - É utilizado para acessar o cluster externamente por um dos nos do cluster kubernetes.(é usado no onpremissses)
+LoadBalance - É cria um ip que ira acessar o cluster.(usados nos cloud providers).
+
+AKS - Serviço da azure para se trabalhar com kubernetes no azures.

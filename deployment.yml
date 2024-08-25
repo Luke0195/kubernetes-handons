@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  #declaração do objeto
+  name: conversao-temperatura
+## especificação do deployment.
+spec:
+  replicas: 3
+  ## responsável por acessar o objetos por chave e valor.
+  selector:
+    matchLabels:
+      app: conversao-temperatura
+  ## define a estrutura dos pods.
+  template:
+    metadata:
+      labels:
+        app: conversao-temperatura
+    spec:
+      containers:
+        - name: conversao
+          image: fabricioveronez/conversao-temperatura:v2
+          ports:
+            - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: conversao-temperatura
+spec:
+  selector:
+    app: conversao-temperatura
+  type: NodePort
+  ports:
+    - port: 80
+      ## porta que será acessada no pod
+      targetPort: 8080
+      nodePort: 30000
